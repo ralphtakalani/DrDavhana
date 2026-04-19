@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Book an appointment with Dr. Davhana MG - Easy online scheduling for general check-ups, vaccinations, chronic disease management, and more.">
+    <meta name="keywords" content="Book Appointment, Online Booking, General Practitioner, Doctor Appointment, Pretoria">
+    <meta name="author" content="Dr. Davhana MG">
+    <title>Book Appointment | Dr. Davhana MG - General Practitioner</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Flatpickr for Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Appointment Page Specific Styles -->
+    <link rel="stylesheet" href="appointment.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1>Dr. Davhana MG</h1>
+                <p class="tagline">General Practitioner & Family Medicine</p>
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="appointment.html" class="active">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+                <div class="burger" id="burgerMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Appointment Hero Section -->
+        <section class="appointment-hero">
+            <div class="container">
+                <div class="appointment-hero-content">
+                    <h1>Book an Appointment</h1>
+                    <p>Schedule your visit with Dr. Davhana MG - Quick, easy, and convenient online booking</p>
+                    <div class="hero-breadcrumb">
+                        <a href="index.html">Home</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Book Appointment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="booking-section">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <!-- Booking Form -->
+                    <div class="booking-form-container">
+                        <div class="form-header">
+                            <h2><i class="fas fa-calendar-plus"></i> Schedule Your Visit</h2>
+                            <p>Please fill out the form below to book your appointment. All fields marked with * are required.</p>
+                        </div>
+
+                        <form id="appointmentForm" class="appointment-form">
+                            <!-- Personal Information Section -->
+                            <div class="form-section">
+                                <h3 class="section-subtitle-form">
+                                    <i class="fas fa-user"></i> Personal Information
+                                </h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name <span class="required">*</span></label>
+                                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                                        <div class="error-message" id="nameError">Please enter your full name</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dateOfBirth">Date of Birth</label>
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email Address <span class="required">*</span></label>
+                                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number <span class="required">*</span></label>
+                                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
+                                        <div class="error-message" id="phoneError">Please enter your phone number</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">Physical Address</label>
+                                    <input type="text" id="address" name="address" placeholder="Your street address">
+                                </div>
+                            </div>
+
+                            <!-- Appointment Details Section -->
+                            <div class="form-section">
+                                <h3 class="section-subtitle-form">
+                                    <i class="fas fa-clock"></i> Appointment Details
+                                </h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="appointmentDate">Preferred Date <span class="required">*</span></label>
+                                        <input type="text" id="appointmentDate" name="appointmentDate" placeholder="Select a date" readonly>
+                                        <div class="error-message" id="dateError">Please select a date</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="appointmentTime">Preferred Time <span class="required">*</span></label>
+                                        <select id="appointmentTime" name="appointmentTime">
+                                            <option value="">Select a time slot</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="09:30">09:30 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="10:30">10:30 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="11:30">11:30 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="14:30">02:30 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="15:30">03:30 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="16:30">04:30 PM</option>
+                                        </select>
+                                        <div class="error-message" id="timeError">Please select a time slot</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="appointmentType">Appointment Type <span class="required">*</span></label>
+                                        <select id="appointmentType" name="appointmentType">
+                                            <option value="">Select appointment type</option>
+                                            <option value="general">General Check-up</option>
+                                            <option value="followup">Follow-up Visit</option>
+                                            <option value="chronic">Chronic Disease Management</option>
+                                            <option value="vaccination">Vaccination</option>
+                                            <option value="pediatric">Pediatric Care</option>
+                                            <option value="women">Women's Health</option>
+                                            <option value="men">Men's Health</option>
+                                            <option value="mental">Mental Health Support</option>
+                                            <option value="procedure">Minor Procedure</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <div class="error-message" id="typeError">Please select an appointment type</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="visitType">Visit Type</label>
+                                        <select id="visitType" name="visitType">
+                                            <option value="inperson">In-Person Visit</option>
+                                            <option value="telemedicine">Telemedicine / Virtual</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reason">Reason for Visit</label>
+                                    <textarea id="reason" name="reason" rows="3" placeholder="Please briefly describe your symptoms or reason for visit..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Medical Information Section -->
+                            <div class="form-section">
+                                <h3 class="section-subtitle-form">
+                                    <i class="fas fa-notes-medical"></i> Medical Information (Optional)
+                                </h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="medicalAid">Medical Aid Scheme</label>
+                                        <input type="text" id="medicalAid" name="medicalAid" placeholder="e.g., Discovery, Momentum">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberNumber">Membership Number</label>
+                                        <input type="text" id="memberNumber" name="memberNumber" placeholder="Your medical aid number">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="allergies">Allergies / Medical Conditions</label>
+                                    <textarea id="allergies" name="allergies" rows="2" placeholder="List any allergies or existing medical conditions..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="currentMedications">Current Medications</label>
+                                    <textarea id="currentMedications" name="currentMedications" rows="2" placeholder="List any medications you are currently taking..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Additional Information -->
+                            <div class="form-section">
+                                <h3 class="section-subtitle-form">
+                                    <i class="fas fa-info-circle"></i> Additional Information
+                                </h3>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="newPatient">
+                                        <span class="checkmark"></span>
+                                        I am a new patient
+                                    </label>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="receiveUpdates">
+                                        <span class="checkmark"></span>
+                                        Send me appointment reminders via SMS/Email
+                                    </label>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="agreeTerms">
+                                        <span class="checkmark"></span>
+                                        I agree to the <a href="privacy.html" target="_blank">privacy policy</a> and terms of service <span class="required">*</span>
+                                    </label>
+                                    <div class="error-message" id="termsError">Please agree to the terms and conditions</div>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="form-actions">
+                                <button type="reset" class="btn-reset">Clear Form</button>
+                                <button type="submit" class="btn-primary">Confirm Appointment <i class="fas fa-check-circle"></i></button>
+                            </div>
+
+                            <!-- Confirmation Message -->
+                            <div id="confirmationMessage" class="confirmation-message"></div>
+                        </form>
+                    </div>
+
+                    <!-- Booking Info Sidebar -->
+                    <div class="booking-info-sidebar">
+                        <div class="info-card">
+                            <h3><i class="fas fa-clock"></i> Clinic Hours</h3>
+                            <ul class="hours-list">
+                                <li><span>Monday - Friday:</span> 9:00 AM - 5:00 PM</li>
+                                <li><span>Saturday:</span> 9:00 AM - 1:00 PM</li>
+                                <li><span>Sunday:</span> Closed</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3><i class="fas fa-phone-alt"></i> Need Help?</h3>
+                            <p>Call us directly to book or inquire about appointments:</p>
+                            <p class="phone-number"><i class="fas fa-phone"></i> +27 12 345 6789</p>
+                            <p class="phone-number"><i class="fab fa-whatsapp"></i> +27 71 234 5678</p>
+                            <a href="contact.html" class="btn-secondary">Contact Us</a>
+                        </div>
+
+                        <div class="info-card">
+                            <h3><i class="fas fa-info-circle"></i> What to Bring</h3>
+                            <ul class="bring-list">
+                                <li><i class="fas fa-id-card"></i> ID / Passport</li>
+                                <li><i class="fas fa-file-invoice"></i> Medical Aid Card</li>
+                                <li><i class="fas fa-pills"></i> Current Medications List</li>
+                                <li><i class="fas fa-x-ray"></i> Previous Test Results</li>
+                                <li><i class="fas fa-file-alt"></i> Referral Letter (if any)</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3><i class="fas fa-shield-alt"></i> Cancellation Policy</h3>
+                            <p>Please notify us at least 24 hours in advance if you need to cancel or reschedule your appointment to avoid cancellation fees.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Why Book With Us</span>
+                    <h2 class="section-title">Simple & Convenient Booking</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Quick & Easy</h3>
+                        <p>Book your appointment in under 2 minutes with our simple online form.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Instant Confirmation</h3>
+                        <p>Receive immediate confirmation via email and SMS reminders.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Easy Rescheduling</h3>
+                        <p>Need to change your appointment? Just give us a call.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Secure & Private</h3>
+                        <p>Your information is protected with industry-standard security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Chat Integration -->
+   <a href="https://wa.me/27767158744?text=Hello%20Dr.%20Davhana%2C%20I%20have%20a%20question%20about%20your%20privacy%20policy." class="whatsapp-chat" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chat with us
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>Dr. Davhana MG</h4>
+                <p>Your trusted General Practitioner. Quality care for every family.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-phone"></i> +27 12 345 6789</p>
+                <p><i class="fas fa-envelope"></i> info@drdavhana.co.za</p>
+                <p><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dr. Davhana MG - General Practitioner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Flatpickr for date selection
+        flatpickr("#appointmentDate", {
+            minDate: "today",
+            maxDate: new Date().fp_incr(90),
+            dateFormat: "Y-m-d",
+            disable: [
+                function(date) {
+                    // Disable Sundays
+                    return date.getDay() === 0;
+                }
+            ],
+            locale: {
+                firstDayOfWeek: 1
+            },
+            onChange: function(selectedDates, dateStr, instance) {
+                // Clear error when date is selected
+                document.getElementById('dateError').style.display = 'none';
+            }
+        });
+
+        // Form validation and submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+            const appointmentType = document.getElementById('appointmentType').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+            
+            // Validate Full Name
+            if (!fullName.trim()) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.trim() || !emailPattern.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Phone
+            if (!phone.trim()) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Date
+            if (!appointmentDate) {
+                document.getElementById('dateError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Time
+            if (!appointmentTime) {
+                document.getElementById('timeError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Appointment Type
+            if (!appointmentType) {
+                document.getElementById('typeError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Terms
+            if (!agreeTerms) {
+                document.getElementById('termsError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Format date for display
+                const formattedDate = new Date(appointmentDate).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Get appointment type text
+                const typeSelect = document.getElementById('appointmentType');
+                const typeText = typeSelect.options[typeSelect.selectedIndex].text;
+                
+                // Get visit type text
+                const visitSelect = document.getElementById('visitType');
+                const visitText = visitSelect.options[visitSelect.selectedIndex].text;
+                
+                // Show confirmation message
+                const confirmationDiv = document.getElementById('confirmationMessage');
+                confirmationDiv.innerHTML = `
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Appointment Confirmed!</h3>
+                    <p>Dear <strong>${fullName}</strong>, your appointment has been successfully scheduled.</p>
+                    <div class="confirmation-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span><strong>Date:</strong> ${formattedDate}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Time:</strong> ${appointmentTime}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span><strong>Type:</strong> ${typeText}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-video"></i>
+                            <span><strong>Visit:</strong> ${visitText}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>Confirmation sent to:</strong> ${email}</span>
+                        </div>
+                    </div>
+                    <p class="confirmation-note">
+                        <i class="fas fa-info-circle"></i> A confirmation email has been sent to your email address. 
+                        Please arrive 10 minutes before your scheduled time.
+                    </p>
+                    <button type="button" class="btn-secondary" onclick="location.reload()">Book Another Appointment</button>
+                `;
+                confirmationDiv.style.display = 'block';
+                
+                // Scroll to confirmation
+                confirmationDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Clear form (optional - comment out if you want to keep form visible)
+                // this.reset();
+                
+                // Log to console (simulates sending to server)
+                console.log('Appointment Booked:', {
+                    name: fullName,
+                    email: email,
+                    phone: phone,
+                    date: appointmentDate,
+                    time: appointmentTime,
+                    type: appointmentType,
+                    visitType: document.getElementById('visitType').value,
+                    reason: document.getElementById('reason').value,
+                    medicalAid: document.getElementById('medicalAid').value
+                });
+            }
+        });
+        
+        // Clear error on input
+        document.getElementById('fullName').addEventListener('input', function() {
+            if (this.value.trim()) {
+                document.getElementById('nameError').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('email').addEventListener('input', function() {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value.trim() && emailPattern.test(this.value)) {
+                document.getElementById('emailError').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('phone').addEventListener('input', function() {
+            if (this.value.trim()) {
+                document.getElementById('phoneError').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('appointmentTime').addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('timeError').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('appointmentType').addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('typeError').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('agreeTerms').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('termsError').style.display = 'none';
+            }
+        });
+        
+        // Reset button handler
+        document.querySelector('.btn-reset').addEventListener('click', function(e) {
+            if (confirm('Are you sure you want to clear all form fields?')) {
+                document.getElementById('appointmentForm').reset();
+                document.getElementById('confirmationMessage').style.display = 'none';
+                document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+            }
+        });
+    </script>
+</body>
+</html>
